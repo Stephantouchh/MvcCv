@@ -1,0 +1,24 @@
+﻿@model MvcCv.Models.Entity.TblEgitimlerim
+@{
+    ViewBag.Title = "YeniEgitim";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Yeni Eğitim Ekleme Sayfası</h3>
+
+<br />
+<form class="form-group" method="post">
+    <input type="text" name="Baslik" class="form-control" placeholder="Başlığı Giriniz!" />
+    @Html.ValidationMessageFor(x => x.Baslik, "", new { @style = "color:green" })
+    <br />
+    <input type="text" name="AltBaslik1" class="form-control" placeholder="Alt Başlık 1'i Giriniz!" />
+    <br />
+    <input type="text" name="AltBaslik2" class="form-control" placeholder="Alt Başlık 2'yi Giriniz!" />
+    <br />
+    <input type="text" name="Tarih" class="form-control" placeholder="Tarihi Giriniz!" />
+    <br />
+    <input type="text" name="GNO" class="form-control" placeholder="Genel Not Ortalama'sını (GNO) Giriniz!" />
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>

@@ -1,0 +1,62 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblSertifikalarim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{ string renk = "";}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <a href="/Sertifika/YeniSertifika/" class="btn btn-info">---Yeni Sertifika Girişi---</a>
+                        
+                        <div class="card-body">
+                            <div class="tab-pane" id="timeline">
+                                <div class="timeline timeline-inverse">
+                                    @foreach (var x in Model)
+                                    {
+                                        if (x.ID % 2 == 0)
+                                        {
+                                            renk = "btn btn-info";
+                                        }
+                                        if (x.ID % 2 != 0)
+                                        {
+                                            renk = "btn btn-success";
+                                        }
+                                        <div class="time-label">
+                                            <a href="/Sertifika/SertifikaGetir/@x.ID" class="@renk">
+                                                <span class="@renk">
+                                                    @x.Tarih
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            @*<i class="fas fa-comments bg-primary"></i>*@
+                                            <div class="timeline-item">
+                                                <div class="timeline-body">
+                                                    @x.Aciklama
+                                                </div>
+                                                @*<div class="timeline-footer">
+                                    <a href="#" class="btn btn-primary btn-sm">Düzenle</a>
+                                    <a href="#" class="btn btn-danger btn-sm">Sil</a>
+                                </div>*@
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
